@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block form %}
+{{super()}}
+<div class='auth_form'>
+    {% for msg in get_flashed_messages() %}
+        <p class="flash">{{msg}}</p>
+    {% endfor %}
+    <form action="/login" method="post">
+        <p><label>Логин: </label><input type="text" name="login" required></p>
+        <p><label>Пароль: </label><input type="password" name="psw" required></p>
+        <a href="{{reg_url}}">Зарегистрироваться</a>
+        <p><input type="submit" value="Авторизоваться"></p>
+    </form>
+</div>
+{% endblock %}
+
+
